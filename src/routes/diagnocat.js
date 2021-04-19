@@ -5,6 +5,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', getPatients);
+router.get('/patients', getPatients);
+router.post('/patients/add', createPatient);
 
 const DIAGNOCAT_URL  = 'https://eu.diagnocat.com/partner-api/v2';
 const DIAGNOCAT_PATIENTS = '/patients';
@@ -19,18 +21,27 @@ const instance = axios.create({
 });
 
 async function getPatients(req, res) {
-
     instance.get(DIAGNOCAT_PATIENTS)
         .then(response => {
-            console.log('response');
-            console.log(response.data);
             res.send(response.data);
         })
         .catch((e) => {
-            console.log(e);
             res.send(e);
         });
 }
+
+async function createPatient(req, res) {
+    const { patient } = req.body;
+
+    instance.post(DIAGNOCAT_PATIENTS,patient, { headers:  {'Content-Type': 'application/json'}})
+        .then(response => {
+            res.send(response.data);
+        })
+        .catch((e) => {
+            res.send(e);
+        });
+}
+
 
 
 module.exports = router;
