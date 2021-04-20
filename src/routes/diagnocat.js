@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', getPatients);
 router.get('/patients', getPatients);
-router.post('/patients/add', createPatient);
+router.post('/patients', createPatient);
 
 const DIAGNOCAT_URL  = 'https://eu.diagnocat.com/partner-api/v2';
 const DIAGNOCAT_PATIENTS = '/patients';
