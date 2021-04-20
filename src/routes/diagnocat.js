@@ -8,8 +8,12 @@ router.get('/', getPatients);
 router.get('/patients', getPatients);
 router.post('/patients', createPatient);
 
+router.get('/patients/:uid/studies', getPatientStudies)
+
 const DIAGNOCAT_URL  = 'https://eu.diagnocat.com/partner-api/v2';
 const DIAGNOCAT_PATIENTS = '/patients';
+
+const DIAGNOCAT_PATIENT_STUDIES = '/patients/:uid/studies';
 
 const token =
     'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcmdhbml6YXRpb25faWQiOjY2OCwidXNlcl9pZCI6NjcxLCJlbWFpbCI6ImFyaUBjdC1kZW50LmNvbSIsInRva2VuX3R5cGUiOiJwYXJ0bmVyX2FwaSIsImlzcyI6MTYwNzYxNDYzMiwidHMiOjE2MDc2MTQ2MzJ9.iz2eqRG9-tbsSOAH1KVCgZ1TW2SNGvONKb7g2biVUeM';
@@ -19,6 +23,9 @@ const instance = axios.create({
     timeout: 3000,
     headers: { Authorization: `Bearer ${token}` },
 });
+
+
+//Patients
 
 async function getPatients(req, res) {
     instance.get(DIAGNOCAT_PATIENTS)
@@ -35,6 +42,25 @@ async function createPatient(req, res) {
 
     instance.post(DIAGNOCAT_PATIENTS,patient, { headers:  {'Content-Type': 'application/json'}})
         .then(response => {
+            res.send(response.data);
+        })
+        .catch((e) => {
+            res.send(e);
+        });
+}
+
+// Studies
+
+async function getPatientStudies(req, res) {
+    console.log(req.params.uid)
+    const { uid } = req.params;
+
+    console.log(uid);
+
+    //TODO
+    instance.get(`/patients/${uid}/studies`)
+        .then(response => {
+            console.log('@@@' + response.data)
             res.send(response.data);
         })
         .catch((e) => {
