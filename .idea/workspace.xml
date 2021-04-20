@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="" />
+    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/www.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +20,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1rEclgCwJ5Sn7zoeVkOIw9UbcUj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -35,7 +45,7 @@
       <recent name="C:\Users\vikel\WebstormProjects\dentq-diagnocat-server\src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start:dev">
+  <component name="RunManager" selected="Node.js.bin\www">
     <configuration name="start:dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -59,11 +69,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618544841668</updated>
-      <workItem from="1618544842739" duration="6504000" />
+      <workItem from="1618544842739" duration="10530000" />
     </task>
+    <task id="LOCAL-00001" summary="add patient">
+      <created>1618806030087</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1618806030087</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add patient" />
+    <option name="LAST_COMMIT_MESSAGE" value="add patient" />
   </component>
 </project>
