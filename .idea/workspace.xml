@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/diagnocat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/diagnocat.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1618544841668</updated>
       <workItem from="1618544842739" duration="10819000" />
-      <workItem from="1618878560076" duration="3790000" />
+      <workItem from="1618878560076" duration="4491000" />
     </task>
     <task id="LOCAL-00001" summary="add patient">
       <created>1618806030087</created>
@@ -118,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618879828366</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add get Patient Studies">
+      <created>1618883701181</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1618883701181</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +137,7 @@
     <MESSAGE value="." />
     <MESSAGE value="add patient work" />
     <MESSAGE value="add gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="add gitignore" />
+    <MESSAGE value="add get Patient Studies" />
+    <option name="LAST_COMMIT_MESSAGE" value="add get Patient Studies" />
   </component>
 </project>

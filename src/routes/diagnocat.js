@@ -8,7 +8,9 @@ router.get('/', getPatients);
 router.get('/patients', getPatients);
 router.post('/patients', createPatient);
 
-router.get('/patients/:uid/studies', getPatientStudies)
+router.get('/patients/:uid/studies', getPatientStudies);
+router.get('/studies/:studyUID/images', getStudyImages);
+router.get('/studies/:studyUID/analyses', getStudyAnalyses);
 
 const DIAGNOCAT_URL  = 'https://eu.diagnocat.com/partner-api/v2';
 const DIAGNOCAT_PATIENTS = '/patients';
@@ -50,17 +52,46 @@ async function createPatient(req, res) {
 }
 
 // Studies
+//http://localhost:3000/diagnocat/patients/9a0dc18a-07dd-3177-41f9-bab003ed4df4/studies
 
 async function getPatientStudies(req, res) {
-    console.log(req.params.uid)
     const { uid } = req.params;
 
-    console.log(uid);
-
-    //TODO
     instance.get(`/patients/${uid}/studies`)
         .then(response => {
-            console.log('@@@' + response.data)
+            res.send(response.data);
+        })
+        .catch((e) => {
+            res.send(e);
+        });
+}
+
+//Images
+
+//List Images in Study
+//http://localhost:3000/diagnocat/studies/17fa2128-e982-48fa-3418-5f9f5c492573/images
+async function getStudyImages(req, res) {
+    const { studyUID } = req.params;
+
+    instance.get(`/studies/${studyUID}/images`)
+        .then(response => {
+            res.send(response.data);
+        })
+        .catch((e) => {
+            res.send(e);
+        });
+}
+
+
+// Analyses
+
+//List Analyses for Study
+//http://localhost:3000/diagnocat/studies/17fa2128-e982-48fa-3418-5f9f5c492573/images
+async function getStudyAnalyses(req, res) {
+    const { studyUID } = req.params;
+
+    instance.get(`/studies/${studyUID}/analyses`)
+        .then(response => {
             res.send(response.data);
         })
         .catch((e) => {

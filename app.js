@@ -1,15 +1,14 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors = require('cors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cors = require('cors');
 
+const indexRouter = require('./src/routes');
+const usersRouter = require('./src/routes/users');
+const diagnocatRouter = require('./src/routes/diagnocat');
 
-var indexRouter = require('./src/routes');
-var usersRouter = require('./src/routes/users');
-var diagnocatRouter = require('./src/routes/diagnocat');
-
-var app = express();
+const app = express();
 
 app.use(cors());
 app.use(logger('dev'));
