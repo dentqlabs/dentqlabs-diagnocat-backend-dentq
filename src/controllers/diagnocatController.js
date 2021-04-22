@@ -16,7 +16,6 @@ exports.getPatients = async function(req, res) {
 
 exports.createPatient = async function(req, res) {
     const { patient } = req.body;
-
     instance.post(DIAGNOCAT_PATIENTS,patient, { headers:  {'Content-Type': 'application/json'}})
         .then(response => {
             res.send(response.data);
