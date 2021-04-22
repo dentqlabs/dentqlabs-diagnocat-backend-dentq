@@ -13,6 +13,6 @@ router.get('/studies/:studyUID/analyses', diagnocatController.getStudyAnalyses);
 
 
 router.post('/upload/open-session', uploadController.openSession);
-
+router.post('/upload/request-upload-urls', uploadController.requestUploadUrls);
 
 module.exports = router;

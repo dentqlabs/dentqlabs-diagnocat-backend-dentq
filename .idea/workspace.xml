@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="separate instances for v1 and v2">
+    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/diagnocatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/diagnocatController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/uploadController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/uploadController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/diagnocat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/diagnocat.js" afterDir="false" />
     </list>
@@ -90,7 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1618544841668</updated>
       <workItem from="1618544842739" duration="10819000" />
-      <workItem from="1618878560076" duration="13762000" />
+      <workItem from="1618878560076" duration="15856000" />
     </task>
     <task id="LOCAL-00001" summary="add patient">
       <created>1618806030087</created>
@@ -155,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619124766425</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="open session">
+      <created>1619127320234</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619127320234</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +176,7 @@
     <MESSAGE value="studies api" />
     <MESSAGE value="refactor" />
     <MESSAGE value="separate instances for v1 and v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="separate instances for v1 and v2" />
+    <MESSAGE value="open session" />
+    <option name="LAST_COMMIT_MESSAGE" value="open session" />
   </component>
 </project>
