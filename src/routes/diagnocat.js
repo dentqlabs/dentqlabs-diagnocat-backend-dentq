@@ -1,4 +1,4 @@
-const diagnocatController = require('../controllers/diagnocat');
+const diagnocatController = require('../controllers/diagnocatController');
 
 const express = require('express');
 const router = express.Router();
