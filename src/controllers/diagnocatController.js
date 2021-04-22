@@ -1,4 +1,7 @@
-const instance = require('../axios');
+const instance = require('../axios').v2_instance;
+
+const DIAGNOCAT_PATIENTS = '/patients';
+const DIAGNOCAT_PATIENT_STUDIES = '/patients/:uid/studies';
 
 //Patients
 exports.getPatients = async function(req, res) {
