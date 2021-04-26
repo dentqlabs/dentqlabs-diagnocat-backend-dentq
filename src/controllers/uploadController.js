@@ -5,6 +5,9 @@ const DIAGNOCAT_UPLOAD_OPEN_SESSION = '/upload/open-session';
 const DIAGNOCAT_UPLOAD_REQUEST_UPLOAD_URLS = '/upload/request-upload-urls';
 const DIAGNOCAT_UPLOAD_PROGRESS_NOTIFY = '/upload/progress-notify';
 
+const DIAGNOCAT_START_SESSION_CLOSE = '/upload/start-session-close';
+const DIAGNOCAT_SESSION_INFO = '/upload/session-info';
+
 exports.startUpload = async function(req, res) {
     if (!req.file) {
         res.status(400).send('No file uploaded.');
@@ -27,15 +30,30 @@ exports.startUpload = async function(req, res) {
             keys: ["file1"]
         }
 
-        let a = await requestUploadUrls(uploadUrlsRequest);
-        // console.log(a.data.upload_urls);
+        let uploadUrls = await requestUploadUrls(uploadUrlsRequest);
+        // console.log(uploadUrls.data.upload_urls);
 
-        let diagnocatStorageUrl = a.data.upload_urls[0];
+        let cloudStorageUrl = uploadUrls.data.upload_urls[0].url;
 
         //3. for each url - upload file
-        let googleResponse = await uploadFiles(uploadUrlsRequest, req.file);
-        console.log(googleResponse);
-        console.log('googleResponse');
+        let googleResponse = await uploadFiles(cloudStorageUrl, req.file);
+        let etag = googleResponse.headers.etag;
+        // console.log(etag);
+
+        //Progress Notify;
+        const progressNotifyRequest = {
+            session_id: sessionId,
+            updates: [
+                {"key": "file1", "etag": etag}
+            ]};
+        let progressNotifyResponse = await uploadProgressNotify(progressNotifyRequest);
+        // console.log(progressNotifyResponse);
+
+        //Start session close:
+        let a = await startSessionProcessing({session_id: sessionId});
+        console.log(a);
+
+        console.log(progressNotifyResponse);
 
         res.send(sessionId);
     } catch (e) {
@@ -60,10 +78,10 @@ async function requestUploadUrls(uploadUrlsRequest) {
 }
 
 //2.1. PUT request should be sent to a URL received via request-upload-urls, in order to upload the files.
-uploadFiles = async function(uploadUrlsRequest, file) {
-    return axios.put(uploadUrlsRequest, file, { headers:  {'Content-Type': 'application/json'}});
+uploadFiles = async function(diagnocatStorageUrl, file) {
+    // console.log(diagnocatStorageUrl, file);
+    return axios.put(diagnocatStorageUrl, file, { headers:  {'Content-Type': 'application/json'}});
 }
-
 
 //3. Notify the server of upload progress, if needed
 /**
@@ -71,14 +89,26 @@ uploadFiles = async function(uploadUrlsRequest, file) {
  * Client is required to periodically call this method (recommended interval is 5 seconds).
  * While session is active, client should call this method at least every 30 seconds.
  */
-exports.uploadProgressNotify = async function(req, res) {
-    const {session_id, keys} = req.body;
-    instance.post(DIAGNOCAT_UPLOAD_PROGRESS_NOTIFY, {session_id, keys}, { headers:  {'Content-Type': 'application/json'}})
-        .then(response => {
-            res.send(response.data);
-        })
-        .catch((e) => {
-            res.send(e);
-        });
+uploadProgressNotify = async function(req) {
+    const {session_id, keys} = req;
+
+    //TODO: send this request every 30 seconds
+    return instance.post(DIAGNOCAT_UPLOAD_PROGRESS_NOTIFY, {session_id, keys}, { headers:  {'Content-Type': 'application/json'}})
+}
+
+
+//4. Start session processing
+/**
+ * Signal that all files were uploaded and close session.
+ * After this call, session status will immediately change to closing ,
+ * and then will change to closed after the server finished processing session files.
+ */
+startSessionProcessing = async function (req) {
+    return instance.post(DIAGNOCAT_START_SESSION_CLOSE, req, { headers:  {'Content-Type': 'application/json'}});
+}
+
+//5.Wait for processing to finish checking status by requesting:
+async function checkSessionInfo(req) {
+    return instance.post(DIAGNOCAT_SESSION_INFO, req, { headers:  {'Content-Type': 'application/json'}});
 }
 

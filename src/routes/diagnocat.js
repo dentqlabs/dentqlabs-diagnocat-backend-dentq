@@ -26,6 +26,5 @@ router.post('/upload/start-upload',multer.single('file'), uploadController.start
 
 router.post('/upload/open-session', uploadController.openSession);
 router.post('/upload/request-upload-urls', uploadController.requestUploadUrls);
-router.post('/upload/progress-notify', uploadController.uploadProgressNotify);
 
 module.exports = router;
