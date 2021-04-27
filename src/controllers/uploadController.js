@@ -41,25 +41,26 @@ exports.startUpload = async function(req, res) {
         // console.log(etag);
 
         //Progress Notify;
+        //TODO:
         const progressNotifyRequest = {
             session_id: sessionId,
             updates: [
                 {"key": "file1", "etag": etag}
             ]};
         let progressNotifyResponse = await uploadProgressNotify(progressNotifyRequest);
-        // console.log(progressNotifyResponse);
+        console.log(progressNotifyResponse.data);
 
         //Start session close:
-        let a = await startSessionProcessing({session_id: sessionId});
-        console.log(a);
+        let startProcessingResponse = await startSessionProcessing({session_id: sessionId});
+        console.log(startProcessingResponse.data);
 
-        console.log(progressNotifyResponse);
+        let res1 = await checkSessionInfo(sessionId);
+        console.log(res1.data);
 
         res.send(sessionId);
     } catch (e) {
         res.send(e);
     }
-
 }
 
 //1. Open uploading session:
@@ -71,8 +72,7 @@ async function openSession(uid) {
 }
 
 //2. Add files to session:
-exports.requestUploadUrls = requestUploadUrls;
-async function requestUploadUrls(uploadUrlsRequest) {
+requestUploadUrls = async function(uploadUrlsRequest) {
     const {session_id, keys} = uploadUrlsRequest;
     return instance.post(DIAGNOCAT_UPLOAD_REQUEST_UPLOAD_URLS, {session_id, keys}, { headers:  {'Content-Type': 'application/json'}});
 }
@@ -80,7 +80,13 @@ async function requestUploadUrls(uploadUrlsRequest) {
 //2.1. PUT request should be sent to a URL received via request-upload-urls, in order to upload the files.
 uploadFiles = async function(diagnocatStorageUrl, file) {
     // console.log(diagnocatStorageUrl, file);
-    return axios.put(diagnocatStorageUrl, file, { headers:  {'Content-Type': 'application/json'}});
+    return axios.put(diagnocatStorageUrl, file,
+        {
+            headers:  {'Content-Type': 'application/json'},
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity
+        }
+    );
 }
 
 //3. Notify the server of upload progress, if needed
@@ -108,7 +114,7 @@ startSessionProcessing = async function (req) {
 }
 
 //5.Wait for processing to finish checking status by requesting:
-async function checkSessionInfo(req) {
-    return instance.post(DIAGNOCAT_SESSION_INFO, req, { headers:  {'Content-Type': 'application/json'}});
+//GET /v1/upload/session-info?session_id=764b299d-51d0-ac01-f325-ba45f8c02df4
+async function checkSessionInfo(sessionId) {
+    return instance.get(`/upload/session-info?session_id=${sessionId}`);
 }
-

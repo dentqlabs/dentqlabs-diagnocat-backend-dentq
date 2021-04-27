@@ -14,7 +14,7 @@ const v2_instance = axios.create({
 const v1_instance = axios.create({
     baseURL: DIAGNOCAT_V1_URL,
     timeout: 3000,
-    headers: { Authorization: `Bearer ${token}` },
+    headers: { Authorization: `Bearer ${token}` }
 });
 
 module.exports = {v2_instance, v1_instance};

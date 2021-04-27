@@ -8,7 +8,7 @@ const Multer = require('multer');
 const multer = Multer({
     storage: Multer.memoryStorage(),
     limits: {
-        fileSize: 500 * 1024 * 1024, // no larger than 500mb.
+        fileSize: 1000 * 1024 * 1024, // no larger than 500mb.
     },
 });
 
@@ -23,8 +23,5 @@ router.get('/studies/:studyUID/images', diagnocatController.getStudyImages);
 router.get('/studies/:studyUID/analyses', diagnocatController.getStudyAnalyses);
 
 router.post('/upload/start-upload',multer.single('file'), uploadController.startUpload);
-
-router.post('/upload/open-session', uploadController.openSession);
-router.post('/upload/request-upload-urls', uploadController.requestUploadUrls);
 
 module.exports = router;
