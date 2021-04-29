@@ -56,8 +56,24 @@ exports.startUpload = async function(req, res) {
 
 
         //Check session info:
-        let res1 = await checkSessionInfo(sessionId);
-        console.log(res1.data);
+        let time = 1;
+
+        let interval = setInterval(function() {
+            if (time <= 1) {
+                let res1 = checkSessionInfo(sessionId);
+                res1.then( result =>
+                    // console.log(result.data)
+                console.log(result.data.session_info.summary.file_errors)
+
+            )
+                time++;
+            }
+            else {
+                clearInterval(interval);
+            }
+        }, 5000);
+
+
 
         res.send(sessionId);
     } catch (e) {
@@ -69,15 +85,18 @@ exports.startUpload = async function(req, res) {
 //Session expires in 5 minutes in case of absence of progress-notify requests.
 //TODO: option to add study to req JSON
 exports.openSession = openSession;
-async function openSession(uid) {
-    return instance.post(DIAGNOCAT_UPLOAD_OPEN_SESSION,uid, { headers:  {'Content-Type': 'application/json'}});
+async function openSession(req, res) {
+    const uid = req.body;
+    let openSessionResponse = await instance.post(DIAGNOCAT_UPLOAD_OPEN_SESSION,uid);
+    res.send(openSessionResponse.data);
 }
 
 //2. Add files to session:
 exports.requestUploadUrls = requestUploadUrls;
-async function requestUploadUrls(uploadUrlsRequest) {
-    const {session_id, keys} = uploadUrlsRequest;
-    return instance.post(DIAGNOCAT_UPLOAD_REQUEST_UPLOAD_URLS, {session_id, keys}, { headers:  {'Content-Type': 'application/json'}});
+async function requestUploadUrls(req, res) {
+    const {session_id, keys} = req.body
+    let requestUploadUrlsResponse = await instance.post(DIAGNOCAT_UPLOAD_REQUEST_UPLOAD_URLS, {session_id, keys}, { headers:  {'Content-Type': 'application/json'}});
+    res.send(requestUploadUrlsResponse.data);
 }
 
 //2.1. PUT request should be sent to a URL received via request-upload-urls, in order to upload the files.

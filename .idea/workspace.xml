@@ -4,7 +4,6 @@
     <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/uploadController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/uploadController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/diagnocat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/diagnocat.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +89,7 @@
       <updated>1618544841668</updated>
       <workItem from="1618544842739" duration="10819000" />
       <workItem from="1618878560076" duration="24179000" />
-      <workItem from="1619370652999" duration="23583000" />
+      <workItem from="1619370652999" duration="25850000" />
     </task>
     <task id="LOCAL-00001" summary="add patient">
       <created>1618806030087</created>
@@ -197,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619498738366</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refactor">
+      <created>1619671220436</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1619671220436</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +216,6 @@
     <MESSAGE value="add gitignore" />
     <MESSAGE value="add get Patient Studies" />
     <MESSAGE value="studies api" />
-    <MESSAGE value="refactor" />
     <MESSAGE value="separate instances for v1 and v2" />
     <MESSAGE value="open session" />
     <MESSAGE value="add files to session" />
@@ -218,7 +223,8 @@
     <MESSAGE value="process req" />
     <MESSAGE value="add upload steps (diagnocat API)" />
     <MESSAGE value="fix a bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix a bug" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -231,7 +237,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/controllers/uploadController.js</url>
-          <line>86</line>
+          <line>105</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -243,7 +249,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/controllers/uploadController.js</url>
-          <line>61</line>
+          <line>77</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
