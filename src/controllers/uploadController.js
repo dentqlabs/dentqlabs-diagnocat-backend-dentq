@@ -54,6 +54,8 @@ exports.startUpload = async function(req, res) {
         let startProcessingResponse = await startSessionProcessing({session_id: sessionId});
         console.log(startProcessingResponse.data);
 
+
+        //Check session info:
         let res1 = await checkSessionInfo(sessionId);
         console.log(res1.data);
 
@@ -72,13 +74,15 @@ async function openSession(uid) {
 }
 
 //2. Add files to session:
-requestUploadUrls = async function(uploadUrlsRequest) {
+exports.requestUploadUrls = requestUploadUrls;
+async function requestUploadUrls(uploadUrlsRequest) {
     const {session_id, keys} = uploadUrlsRequest;
     return instance.post(DIAGNOCAT_UPLOAD_REQUEST_UPLOAD_URLS, {session_id, keys}, { headers:  {'Content-Type': 'application/json'}});
 }
 
 //2.1. PUT request should be sent to a URL received via request-upload-urls, in order to upload the files.
-uploadFiles = async function(diagnocatStorageUrl, file) {
+exports.uploadFiles = uploadFiles;
+async function uploadFiles(diagnocatStorageUrl, file) {
     // console.log(diagnocatStorageUrl, file);
     return axios.put(diagnocatStorageUrl, file,
         {
@@ -95,7 +99,8 @@ uploadFiles = async function(diagnocatStorageUrl, file) {
  * Client is required to periodically call this method (recommended interval is 5 seconds).
  * While session is active, client should call this method at least every 30 seconds.
  */
-uploadProgressNotify = async function(req) {
+exports. uploadProgressNotify = uploadProgressNotify;
+async function uploadProgressNotify(req) {
     const {session_id, keys} = req;
 
     //TODO: send this request every 30 seconds
@@ -109,12 +114,14 @@ uploadProgressNotify = async function(req) {
  * After this call, session status will immediately change to closing ,
  * and then will change to closed after the server finished processing session files.
  */
-startSessionProcessing = async function (req) {
+exports.startSessionProcessing = startSessionProcessing;
+async function startSessionProcessing(req) {
     return instance.post(DIAGNOCAT_START_SESSION_CLOSE, req, { headers:  {'Content-Type': 'application/json'}});
 }
 
 //5.Wait for processing to finish checking status by requesting:
 //GET /v1/upload/session-info?session_id=764b299d-51d0-ac01-f325-ba45f8c02df4
+exports.checkSessionInfo = checkSessionInfo;
 async function checkSessionInfo(sessionId) {
     return instance.get(`/upload/session-info?session_id=${sessionId}`);
 }

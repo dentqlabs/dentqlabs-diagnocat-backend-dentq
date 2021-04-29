@@ -24,4 +24,15 @@ router.get('/studies/:studyUID/analyses', diagnocatController.getStudyAnalyses);
 
 router.post('/upload/start-upload',multer.single('file'), uploadController.startUpload);
 
+
+router.post('/upload/open-session', uploadController.openSession);
+router.post('/upload/request-upload-urls', uploadController.requestUploadUrls);
+router.post('/upload/upload-files', uploadController.uploadFiles);
+router.post('/upload/progress-notify', uploadController.uploadProgressNotify);
+router.post('/upload/start-session-close', uploadController.startSessionProcessing);
+router.post('/upload/session-info', uploadController.checkSessionInfo);
+
+
+
+
 module.exports = router;
