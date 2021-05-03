@@ -7,13 +7,13 @@ const token =
 
 const v2_instance = axios.create({
     baseURL: DIAGNOCAT_V2_URL,
-    timeout: 3000,
+    timeout: 30000,
     headers: { Authorization: `Bearer ${token}` },
 });
 
 const v1_instance = axios.create({
     baseURL: DIAGNOCAT_V1_URL,
-    timeout: 3000,
+    timeout: 30000,
     headers: { Authorization: `Bearer ${token}` }
 });
 

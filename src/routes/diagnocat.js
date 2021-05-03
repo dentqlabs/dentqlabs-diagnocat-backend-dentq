@@ -18,21 +18,16 @@ const router = express.Router();
 router.get('/patients', diagnocatController.getPatients);
 router.post('/patients', diagnocatController.createPatient);
 router.get('/patients/:uid/studies', diagnocatController.getPatientStudies);
+router.get('/patients/:uid/createStudy', diagnocatController.createStudy);
 
 router.get('/studies/:studyUID/images', diagnocatController.getStudyImages);
 router.get('/studies/:studyUID/analyses', diagnocatController.getStudyAnalyses);
 
-router.post('/upload/start-upload',multer.single('file'), uploadController.startUpload);
-
-
 router.post('/upload/open-session', uploadController.openSession);
 router.post('/upload/request-upload-urls', uploadController.requestUploadUrls);
-router.post('/upload/upload-files', uploadController.uploadFiles);
+router.post('/upload/upload-files',multer.single('file'), uploadController.uploadFiles);
 router.post('/upload/progress-notify', uploadController.uploadProgressNotify);
-router.post('/upload/start-session-close', uploadController.startSessionProcessing);
+router.post('/upload/start-session-processing', uploadController.startSessionProcessing);
 router.post('/upload/session-info', uploadController.checkSessionInfo);
-
-
-
 
 module.exports = router;

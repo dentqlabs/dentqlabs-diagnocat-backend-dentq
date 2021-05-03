@@ -41,6 +41,26 @@ exports.getPatientStudies = async function(req, res) {
         });
 }
 
+exports.createStudy = async function(req, res) {
+    const { uid } = req.params;
+    //Enum:"CBCT" "FMX" "PANORAMA" "DENTAL_PHOTO"
+    let studyRequest = {
+        patient_uid: uid,
+        study_type: 'CBCT',
+        study_date: '2020-02-01',
+            // Date.now(), //TODO: string
+        is_post_op: false
+    }
+
+    instance.post(`/patients/${uid}/studies`, studyRequest)
+        .then(response => {
+            res.send(response.data);
+        })
+        .catch((e) => {
+            res.send(e);
+        });
+}
+
 //Images
 
 //List Images in Study
