@@ -44,12 +44,12 @@ exports.getPatientStudies = async function(req, res) {
 
 exports.createStudy = async function(req, res) {
     const { uid } = req.params;
-    //Enum:"CBCT" "FMX" "PANORAMA" "DENTAL_PHOTO"
+    let date  = new Date().toISOString().replace(/T.*/,'').split('-').reverse().join('-');
+    //TODO: Enum:"CBCT" "FMX" "PANORAMA" "DENTAL_PHOTO"
     let studyRequest = {
         patient_uid: uid,
         study_type: 'CBCT',
-        study_date: '2020-02-01',
-            // Date.now(), //TODO: string
+        study_date: date,
         is_post_op: false
     }
 

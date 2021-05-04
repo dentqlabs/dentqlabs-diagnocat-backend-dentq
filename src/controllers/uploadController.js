@@ -10,7 +10,6 @@ const DIAGNOCAT_SESSION_INFO = '/upload/session-info';
 
 //1. Open uploading session:
 //Session expires in 5 minutes in case of absence of progress-notify requests.
-//TODO: option to add study to req JSON
 exports.openSession = openSession;
 async function openSession(req, res) {
     const {uid, study_uid} = req.body;
