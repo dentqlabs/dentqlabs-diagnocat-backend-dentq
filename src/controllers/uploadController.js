@@ -13,8 +13,8 @@ const DIAGNOCAT_SESSION_INFO = '/upload/session-info';
 //TODO: option to add study to req JSON
 exports.openSession = openSession;
 async function openSession(req, res) {
-    const {uid, studyId} = req.body;
-    let openSessionResponse = await instance.post(DIAGNOCAT_UPLOAD_OPEN_SESSION,{uid, studyId});
+    const {uid, study_uid} = req.body;
+    let openSessionResponse = await instance.post(DIAGNOCAT_UPLOAD_OPEN_SESSION,{uid, study_uid});
     res.send(openSessionResponse.data);
 }
 

@@ -23,6 +23,10 @@ router.get('/patients/:uid/createStudy', diagnocatController.createStudy);
 router.get('/studies/:studyUID/images', diagnocatController.getStudyImages);
 router.get('/studies/:studyUID/analyses', diagnocatController.getStudyAnalyses);
 
+router.post('/analysis/request', diagnocatController.requestAnalysis);
+
+
+
 router.post('/upload/open-session', uploadController.openSession);
 router.post('/upload/request-upload-urls', uploadController.requestUploadUrls);
 router.post('/upload/upload-files',multer.single('file'), uploadController.uploadFiles);

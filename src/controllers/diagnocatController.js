@@ -1,4 +1,5 @@
 const instance = require('../axios').v2_instance;
+const v1Instance = require('../axios').v1_instance;
 
 const DIAGNOCAT_PATIENTS = '/patients';
 const DIAGNOCAT_PATIENT_STUDIES = '/patients/:uid/studies';
@@ -86,6 +87,19 @@ exports.getStudyAnalyses = async function(req, res) {
     const { studyUID } = req.params;
 
     instance.get(`/studies/${studyUID}/analyses`)
+        .then(response => {
+            res.send(response.data);
+        })
+        .catch((e) => {
+            res.send(e);
+        });
+}
+
+
+
+//Request Analysis:
+exports.requestAnalysis = async function(req, res) {
+    v1Instance.post(`/analysis/request`, req.body)
         .then(response => {
             res.send(response.data);
         })
