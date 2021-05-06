@@ -14,6 +14,8 @@ exports.openSession = openSession;
 async function openSession(req, res) {
     const {uid, study_uid} = req.body;
     let openSessionResponse = await instance.post(DIAGNOCAT_UPLOAD_OPEN_SESSION,{uid, study_uid});
+    console.log(openSessionResponse.data);
+
     res.send(openSessionResponse.data);
 }
 
@@ -22,6 +24,8 @@ exports.requestUploadUrls = requestUploadUrls;
 async function requestUploadUrls(req, res) {
     const {session_id, keys} = req.body
     let requestUploadUrlsResponse = await instance.post(DIAGNOCAT_UPLOAD_REQUEST_UPLOAD_URLS, {session_id, keys}, { headers:  {'Content-Type': 'application/json'}});
+    console.log(requestUploadUrlsResponse.data);
+
     res.send(requestUploadUrlsResponse.data);
 }
 
@@ -40,6 +44,8 @@ async function uploadFiles(req, res) {
             maxBodyLength: Infinity
         }
     );
+    console.log('file uploaded. etag: ' + putFileRes.headers.etag);
+
     res.status(200).send(putFileRes.headers.etag);
 }
 
@@ -52,6 +58,8 @@ async function uploadFiles(req, res) {
 exports. uploadProgressNotify = uploadProgressNotify;
 async function uploadProgressNotify(req, res) {
     let uploadProgressNotifyRes = await instance.post(DIAGNOCAT_UPLOAD_PROGRESS_NOTIFY, req.body, { headers:  {'Content-Type': 'application/json'}})
+
+    console.log(uploadProgressNotifyRes.data);
 
     res.send(uploadProgressNotifyRes.data);
 }
@@ -66,6 +74,7 @@ async function uploadProgressNotify(req, res) {
 exports.startSessionProcessing = startSessionProcessing;
 async function startSessionProcessing(req, res) {
     let sessionCloseRequest = await instance.post(DIAGNOCAT_START_SESSION_CLOSE, req.body);
+    console.log(sessionCloseRequest.data);
     res.send(sessionCloseRequest.data);
 }
 
@@ -75,5 +84,6 @@ exports.checkSessionInfo = checkSessionInfo;
 async function checkSessionInfo(req, res) {
     const sessionId = req.body.session_id;
     let sessionInfoResponse = await instance.get(`/upload/session-info?session_id=${sessionId}`);
+    console.log(sessionInfoResponse.data);
     res.send(sessionInfoResponse.data);
 }

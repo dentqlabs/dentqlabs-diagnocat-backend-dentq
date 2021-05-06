@@ -15,6 +15,7 @@ exports.getPatients = async function(req, res) {
         });
 }
 
+//create patient
 exports.createPatient = async function(req, res) {
     const { patient } = req.body;
     instance.post(DIAGNOCAT_PATIENTS,patient, { headers:  {'Content-Type': 'application/json'}})
@@ -26,6 +27,17 @@ exports.createPatient = async function(req, res) {
         });
 }
 
+//delete patient
+exports.deletePatient = async function(req, res) {
+    const { patientUID } = req.body;
+    instance.post(`delete/patients/${patientUID}`,patient)
+        .then(response => {
+            res.send(response.data);
+        })
+        .catch((e) => {
+            res.send(e);
+        });
+}
 
 // Studies
 //http://localhost:3000/diagnocat/patients/9a0dc18a-07dd-3177-41f9-bab003ed4df4/studies
@@ -55,9 +67,11 @@ exports.createStudy = async function(req, res) {
 
     instance.post(`/patients/${uid}/studies`, studyRequest)
         .then(response => {
+            console.log(response.data);
             res.send(response.data);
         })
         .catch((e) => {
+            console.log(e);
             res.send(e);
         });
 }
@@ -95,15 +109,32 @@ exports.getStudyAnalyses = async function(req, res) {
         });
 }
 
-
-
 //Request Analysis:
 exports.requestAnalysis = async function(req, res) {
-    v1Instance.post(`/analysis/request`, req.body)
+    const { studyUID } = req.params;
+
+    instance.post(`/studies/${studyUID}/analyses`, req.body)
         .then(response => {
+            console.log(response.data);
             res.send(response.data);
         })
         .catch((e) => {
+            console.log(e);
+            res.send(e);
+        });
+}
+
+//Fetch analysis:
+exports.getAnalysis = async function(req, res) {
+    const { analysisUID } = req.params;
+
+    instance.get(`/analyses/${analysisUID}`)
+        .then(response => {
+            console.log(response.data);
+            res.send(response.data);
+        })
+        .catch((e) => {
+            console.log(e);
             res.send(e);
         });
 }

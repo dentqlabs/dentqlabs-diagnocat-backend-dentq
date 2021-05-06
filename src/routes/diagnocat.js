@@ -23,9 +23,8 @@ router.get('/patients/:uid/createStudy', diagnocatController.createStudy);
 router.get('/studies/:studyUID/images', diagnocatController.getStudyImages);
 router.get('/studies/:studyUID/analyses', diagnocatController.getStudyAnalyses);
 
-router.post('/analysis/request', diagnocatController.requestAnalysis);
-
-
+router.post('/studies/:studyUID/analyses', diagnocatController.requestAnalysis);
+router.get('/analyses/:analysisUID', diagnocatController.getAnalysis);
 
 router.post('/upload/open-session', uploadController.openSession);
 router.post('/upload/request-upload-urls', uploadController.requestUploadUrls);
