@@ -28,7 +28,7 @@ router.get('/analyses/:analysisUID', diagnocatController.getAnalysis);
 
 router.post('/upload/open-session', uploadController.openSession);
 router.post('/upload/request-upload-urls', uploadController.requestUploadUrls);
-router.post('/upload/upload-files',multer.single('file'), uploadController.uploadFiles);
+// router.post('/upload/upload-files',multer.single('file'), uploadController.uploadFiles);
 router.post('/upload/progress-notify', uploadController.uploadProgressNotify);
 router.post('/upload/start-session-processing', uploadController.startSessionProcessing);
 router.post('/upload/session-info', uploadController.checkSessionInfo);

@@ -30,24 +30,24 @@ async function requestUploadUrls(req, res) {
 }
 
 //2.1. PUT request should be sent to a URL received via request-upload-urls, in order to upload the files.
-exports.uploadFiles = uploadFiles;
-async function uploadFiles(req, res) {
-    if (!req.file) {
-        res.status(400).send('No file uploaded.');
-        return;
-    }
-
-    let putFileRes = await axios.put(req.body.url, req.file,
-        {
-            headers:  {'Content-Type': 'application/json'},
-            maxContentLength: Infinity,
-            maxBodyLength: Infinity
-        }
-    );
-    console.log('file uploaded. etag: ' + putFileRes.headers.etag);
-
-    res.status(200).send(putFileRes.headers.etag);
-}
+// exports.uploadFiles = uploadFiles;
+// async function uploadFiles(req, res) {
+//     if (!req.file) {
+//         res.status(400).send('No file uploaded.');
+//         return;
+//     }
+//
+//     let putFileRes = await axios.put(req.body.url, req.file,
+//         {
+//             headers:  {'Content-Type': 'application/json'},
+//             maxContentLength: Infinity,
+//             maxBodyLength: Infinity
+//         }
+//     );
+//     console.log('file uploaded. etag: ' + putFileRes.headers.etag);
+//
+//     res.status(200).send(putFileRes.headers.etag);
+// }
 
 //3. Notify the server of upload progress, if needed
 /**
