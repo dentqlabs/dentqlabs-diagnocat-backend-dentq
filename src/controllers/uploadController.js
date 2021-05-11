@@ -15,7 +15,6 @@ async function openSession(req, res) {
     const {uid, study_uid} = req.body;
     let openSessionResponse = await instance.post(DIAGNOCAT_UPLOAD_OPEN_SESSION,{uid, study_uid});
     console.log(openSessionResponse.data);
-
     res.send(openSessionResponse.data);
 }
 
@@ -25,7 +24,6 @@ async function requestUploadUrls(req, res) {
     const {session_id, keys} = req.body
     let requestUploadUrlsResponse = await instance.post(DIAGNOCAT_UPLOAD_REQUEST_UPLOAD_URLS, {session_id, keys}, { headers:  {'Content-Type': 'application/json'}});
     console.log(requestUploadUrlsResponse.data);
-
     res.send(requestUploadUrlsResponse.data);
 }
 
@@ -58,9 +56,7 @@ async function requestUploadUrls(req, res) {
 exports. uploadProgressNotify = uploadProgressNotify;
 async function uploadProgressNotify(req, res) {
     let uploadProgressNotifyRes = await instance.post(DIAGNOCAT_UPLOAD_PROGRESS_NOTIFY, req.body, { headers:  {'Content-Type': 'application/json'}})
-
     console.log(uploadProgressNotifyRes.data);
-
     res.send(uploadProgressNotifyRes.data);
 }
 
