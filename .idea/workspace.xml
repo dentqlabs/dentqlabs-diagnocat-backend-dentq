@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
       <recent name="C:\Users\vikel\WebstormProjects\dentq-diagnocat-server\src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start:dev">
+  <component name="RunManager" selected="npm.start">
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -91,7 +89,7 @@
       <workItem from="1618544842739" duration="10819000" />
       <workItem from="1618878560076" duration="24179000" />
       <workItem from="1619370652999" duration="32844000" />
-      <workItem from="1619815907307" duration="50975000" />
+      <workItem from="1619815907307" duration="51636000" />
     </task>
     <task id="LOCAL-00001" summary="add patient">
       <created>1618806030087</created>
@@ -254,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620706158669</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="dockerize">
+      <created>1620706497628</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1620706497628</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,6 +286,7 @@
     <MESSAGE value="upload file and fetching analysis work" />
     <MESSAGE value="clean code" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="dockerize" />
+    <option name="LAST_COMMIT_MESSAGE" value="dockerize" />
   </component>
 </project>
