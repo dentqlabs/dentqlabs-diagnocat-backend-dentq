@@ -15,7 +15,7 @@ const http = require('http');
 // const port = normalizePort(3000);
 const PORT = 3000;
 const HOST = '0.0.0.0';
-// app.set('port', port);
+app.set('port', PORT);
 
 /**
  * Create HTTP server.
@@ -56,6 +56,7 @@ function normalizePort(val) {
  */
 
 function onError(error) {
+  const port = 3000;
   if (error.syscall !== 'listen') {
     throw error;
   }
