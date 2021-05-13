@@ -13,9 +13,7 @@ const http = require('http');
  */
 
 // const port = normalizePort(3000);
-const PORT = 3000;
-const HOST = '0.0.0.0';
-app.set('port', PORT);
+// app.set('port', port);
 
 /**
  * Create HTTP server.
@@ -27,7 +25,7 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(PORT, HOST);
+server.listen(3000, '0.0.0.0');
 server.on('error', onError);
 server.on('listening', onListening);
 
