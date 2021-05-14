@@ -11,7 +11,7 @@ exports.getPatients = async function(req, res) {
             res.send(response.data);
         })
         .catch((e) => {
-            res.send(e);
+            res.status(500).send(e);
         });
 }
 
@@ -23,7 +23,7 @@ exports.createPatient = async function(req, res) {
             res.send(response.data);
         })
         .catch((e) => {
-            res.send(e);
+            res.status(500).send(e);
         });
 }
 
@@ -36,7 +36,7 @@ exports.deletePatient = async function(req, res) {
             res.send(response.data);
         })
         .catch((e) => {
-            res.send(e);
+            res.status(500).send(e);
         });
 }
 
@@ -51,7 +51,7 @@ exports.getPatientStudies = async function(req, res) {
             res.send(response.data);
         })
         .catch((e) => {
-            res.send(e);
+            res.status(500).send(e);
         });
 }
 
@@ -73,7 +73,7 @@ exports.createStudy = async function(req, res) {
         })
         .catch((e) => {
             console.log(e);
-            res.send(e);
+            res.status(500).send(e);
         });
 }
 
@@ -89,7 +89,7 @@ exports.getStudyImages = async function(req, res) {
             res.send(response.data);
         })
         .catch((e) => {
-            res.send(e);
+            res.status(500).send(e);
         });
 }
 
@@ -106,7 +106,7 @@ exports.getStudyAnalyses = async function(req, res) {
             res.send(response.data);
         })
         .catch((e) => {
-            res.send(e);
+            res.status(500).send(e);
         });
 }
 
@@ -121,7 +121,7 @@ exports.requestAnalysis = async function(req, res) {
         })
         .catch((e) => {
             console.log(e);
-            res.send(e);
+            res.status(500).send(e);
         });
 }
 
@@ -136,7 +136,7 @@ exports.getAnalysis = async function(req, res) {
         })
         .catch((e) => {
             console.log(e);
-            res.send(e);
+            res.status(500).send(e);
         });
 }
 
