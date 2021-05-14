@@ -29,8 +29,9 @@ exports.createPatient = async function(req, res) {
 
 //delete patient
 exports.deletePatient = async function(req, res) {
-    const { patientUID } = req.body;
-    instance.post(`delete/patients/${patientUID}`,patient)
+    const { patientUID } = req.params;
+
+    instance.delete(`/patients/${patientUID}`)
         .then(response => {
             res.send(response.data);
         })

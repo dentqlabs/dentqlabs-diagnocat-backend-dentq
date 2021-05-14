@@ -17,6 +17,8 @@ const router = express.Router();
 
 router.get('/patients', diagnocatController.getPatients);
 router.post('/patients', diagnocatController.createPatient);
+router.delete('/patients/:patientUID', diagnocatController.deletePatient);
+
 router.get('/patients/:uid/studies', diagnocatController.getPatientStudies);
 router.get('/patients/:uid/createStudy', diagnocatController.createStudy);
 
