@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="">
+    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="add error status code when catching errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/diagnocatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/diagnocatController.js" afterDir="false" />
     </list>
@@ -90,7 +90,7 @@
       <workItem from="1618544842739" duration="10819000" />
       <workItem from="1618878560076" duration="24179000" />
       <workItem from="1619370652999" duration="32844000" />
-      <workItem from="1619815907307" duration="76100000" />
+      <workItem from="1619815907307" duration="79655000" />
     </task>
     <task id="LOCAL-00001" summary="add patient">
       <created>1618806030087</created>
@@ -337,14 +337,20 @@
       <option name="project" value="LOCAL" />
       <updated>1620955497237</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="add error status code when catching errors">
+      <created>1620963118904</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1620963118904</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add patient" />
     <MESSAGE value="add patient work" />
     <MESSAGE value="add gitignore" />
     <MESSAGE value="add get Patient Studies" />
@@ -369,7 +375,8 @@
     <MESSAGE value="edit PORT+HOST" />
     <MESSAGE value="fix port error" />
     <MESSAGE value="add delete patient" />
-    <option name="LAST_COMMIT_MESSAGE" value="add delete patient" />
+    <MESSAGE value="add error status code when catching errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="add error status code when catching errors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
