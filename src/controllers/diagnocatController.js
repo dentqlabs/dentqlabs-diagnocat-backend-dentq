@@ -1,5 +1,4 @@
 const instance = require('../axios').v2_instance;
-const v1Instance = require('../axios').v1_instance;
 
 const DIAGNOCAT_PATIENTS = '/patients';
 const DIAGNOCAT_PATIENT_STUDIES = '/patients/:uid/studies';
@@ -76,6 +75,20 @@ exports.createStudy = async function(req, res) {
             res.status(500).send(e);
         });
 }
+
+//delete study
+exports.deleteStudy = async function(req, res) {
+    const { studyUID } = req.params;
+
+    instance.delete(`/studies/${studyUID}`)
+        .then(response => {
+            res.send(response.data);
+        })
+        .catch((e) => {
+            res.status(500).send(e);
+        });
+}
+
 
 //Images
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="add error status code when catching errors">
+    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="fix date bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/diagnocatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/diagnocatController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/diagnocat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/diagnocat.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.15.2" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.41" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../takeme-server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dentq-client" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -90,7 +91,8 @@
       <workItem from="1618544842739" duration="10819000" />
       <workItem from="1618878560076" duration="24179000" />
       <workItem from="1619370652999" duration="32844000" />
-      <workItem from="1619815907307" duration="79655000" />
+      <workItem from="1619815907307" duration="94004000" />
+      <workItem from="1621475669120" duration="3642000" />
     </task>
     <task id="LOCAL-00001" summary="add patient">
       <created>1618806030087</created>
@@ -344,14 +346,20 @@
       <option name="project" value="LOCAL" />
       <updated>1620963118904</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fix date bug">
+      <created>1621006871494</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1621006871494</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add patient work" />
     <MESSAGE value="add gitignore" />
     <MESSAGE value="add get Patient Studies" />
     <MESSAGE value="studies api" />
@@ -376,60 +384,7 @@
     <MESSAGE value="fix port error" />
     <MESSAGE value="add delete patient" />
     <MESSAGE value="add error status code when catching errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="add error status code when catching errors" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
-          <line>59</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
-          <line>68</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
-          <line>69</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
-          <line>71</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
-          <line>74</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
-          <line>75</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
-          <line>58</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
-          <line>61</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fix date bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix date bug" />
   </component>
 </project>

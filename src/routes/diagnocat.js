@@ -21,6 +21,7 @@ router.delete('/patients/:patientUID', diagnocatController.deletePatient);
 
 router.get('/patients/:uid/studies', diagnocatController.getPatientStudies);
 router.get('/patients/:uid/createStudy', diagnocatController.createStudy);
+router.delete('/studies/:studyUID', diagnocatController.deleteStudy);
 
 router.get('/studies/:studyUID/images', diagnocatController.getStudyImages);
 router.get('/studies/:studyUID/analyses', diagnocatController.getStudyAnalyses);
