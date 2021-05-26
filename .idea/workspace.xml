@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="add delete study">
+    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/diagnocatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/diagnocatController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/diagnocat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/diagnocat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/uploadController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/uploadController.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +91,7 @@
       <workItem from="1618878560076" duration="24179000" />
       <workItem from="1619370652999" duration="32844000" />
       <workItem from="1619815907307" duration="94004000" />
-      <workItem from="1621475669120" duration="13407000" />
+      <workItem from="1621475669120" duration="15649000" />
     </task>
     <task id="LOCAL-00001" summary="add patient">
       <created>1618806030087</created>
@@ -360,14 +359,20 @@
       <option name="project" value="LOCAL" />
       <updated>1621639364506</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="fix bug - for panoramic studies">
+      <created>1621965680889</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1621965680889</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add get Patient Studies" />
     <MESSAGE value="studies api" />
     <MESSAGE value="separate instances for v1 and v2" />
     <MESSAGE value="open session" />
@@ -392,6 +397,7 @@
     <MESSAGE value="add error status code when catching errors" />
     <MESSAGE value="fix date bug" />
     <MESSAGE value="add delete study" />
-    <option name="LAST_COMMIT_MESSAGE" value="add delete study" />
+    <MESSAGE value="fix bug - for panoramic studies" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug - for panoramic studies" />
   </component>
 </project>
