@@ -40,7 +40,6 @@ async function uploadProgressNotify(req, res) {
     res.send(uploadProgressNotifyRes.data);
 }
 
-
 //4. Start session processing
 /**
  * Signal that all files were uploaded and close session.

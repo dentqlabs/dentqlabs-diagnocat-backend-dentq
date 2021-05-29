@@ -157,3 +157,18 @@ exports.getAnalysis = async function(req, res) {
         });
 }
 
+//Create a link for doctors:
+exports.createDoctorLink = async function(req, res) {
+    const { patientUID } = req.params;
+
+    instance.post(`/patients/${patientUID}/shares`, req.body)
+        .then(response => {
+            console.log(response.data);
+            res.send(response.data);
+        })
+        .catch((e) => {
+            console.log(e);
+            res.status(500).send(e);
+        });
+}
+
