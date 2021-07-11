@@ -30,6 +30,7 @@ router.get('/studies/:studyUID/analyses', diagnocatController.getStudyAnalyses);
 
 router.post('/studies/:studyUID/analyses', diagnocatController.requestAnalysis);
 router.get('/analyses/:analysisUID', diagnocatController.getAnalysis);
+router.delete('/analyses/:analysisUID', diagnocatController.deleteAnalysis);
 
 router.post('/upload/open-session', uploadController.openSession);
 router.post('/upload/request-upload-urls', uploadController.requestUploadUrls);

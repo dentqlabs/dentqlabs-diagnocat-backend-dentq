@@ -187,6 +187,19 @@ exports.createDoctorLink = async function(req, res) {
         });
 }
 
+//Delete analysis:
+exports.deleteAnalysis = async function(req, res) {
+    const { analysisUID } = req.params;
+
+    instance.delete(`/analyses/${analysisUID}`)
+        .then(response => {
+            res.send(response.data);
+        })
+        .catch((e) => {
+            res.status(500).send(e);
+        });
+}
+
 //Script to update all patients ids:
 exports.updateAllPatientsIds = async function(req, res) {
     let patients = await instance.get(DIAGNOCAT_PATIENTS);
