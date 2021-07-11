@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="">
+    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="add getPatient">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/diagnocatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/diagnocatController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/uploadController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/uploadController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/diagnocat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/diagnocat.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +93,10 @@
       <workItem from="1618878560076" duration="24179000" />
       <workItem from="1619370652999" duration="32844000" />
       <workItem from="1619815907307" duration="94004000" />
-      <workItem from="1621475669120" duration="21442000" />
+      <workItem from="1621475669120" duration="25097000" />
+      <workItem from="1623079258653" duration="30751000" />
+      <workItem from="1625808538208" duration="6196000" />
+      <workItem from="1625946511027" duration="5809000" />
     </task>
     <task id="LOCAL-00001" summary="add patient">
       <created>1618806030087</created>
@@ -375,14 +378,20 @@
       <option name="project" value="LOCAL" />
       <updated>1621995262206</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Create a link for doctors">
+      <created>1622251157926</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1622251157926</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="separate instances for v1 and v2" />
     <MESSAGE value="open session" />
     <MESSAGE value="add files to session" />
     <MESSAGE value="upload file using multer" />
@@ -407,6 +416,7 @@
     <MESSAGE value="add delete study" />
     <MESSAGE value="fix bug - for panoramic studies" />
     <MESSAGE value="delete unused code" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete unused code" />
+    <MESSAGE value="Create a link for doctors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create a link for doctors" />
   </component>
 </project>

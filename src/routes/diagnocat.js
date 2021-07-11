@@ -15,6 +15,7 @@ const multer = Multer({
 const express = require('express');
 const router = express.Router();
 
+router.get('/patients/:patientID', diagnocatController.getPatient);
 router.get('/patients', diagnocatController.getPatients);
 router.post('/patients', diagnocatController.createPatient);
 router.delete('/patients/:patientUID', diagnocatController.deletePatient);
@@ -36,5 +37,6 @@ router.post('/upload/progress-notify', uploadController.uploadProgressNotify);
 router.post('/upload/start-session-processing', uploadController.startSessionProcessing);
 router.post('/upload/session-info', uploadController.checkSessionInfo);
 
+router.get('/updateAllPatientsIds', diagnocatController.updateAllPatientsIds);
 
 module.exports = router;

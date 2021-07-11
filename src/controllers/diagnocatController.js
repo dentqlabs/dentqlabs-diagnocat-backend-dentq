@@ -1,9 +1,24 @@
+const {ctdentInstance} = require("../axios");
+const {CTDENT_API_KEY} = require("../axios");
 const instance = require('../axios').v2_instance;
 
 const DIAGNOCAT_PATIENTS = '/patients';
 const DIAGNOCAT_PATIENT_STUDIES = '/patients/:uid/studies';
 
 //Patients
+exports.getPatient = async function(req,res) {
+    const { patientID } = req.params;
+
+    instance.get(`/patients?patient_id=${patientID}`)
+        .then(response => {
+            res.send(response.data);
+        })
+        .catch((e) => {
+            res.status(500).send(e);
+        });
+}
+
+
 exports.getPatients = async function(req, res) {
     instance.get(DIAGNOCAT_PATIENTS)
         .then(response => {
@@ -170,5 +185,53 @@ exports.createDoctorLink = async function(req, res) {
             console.log(e);
             res.status(500).send(e);
         });
+}
+
+//Script to update all patients ids:
+exports.updateAllPatientsIds = async function(req, res) {
+    let patients = await instance.get(DIAGNOCAT_PATIENTS);
+    let patient = patients.data[0];
+    console.log(patient);
+
+    let i,j,temparray,chunk = 50;
+    for (i=0,j=patients.data.length; i<j; i+=chunk) {
+        temparray = patients.data.slice(i,i+chunk);
+        for (const patient of temparray) {
+            let ctdent_req = {
+                api_key: CTDENT_API_KEY,
+                id: -1,
+                first_name: patient.name_part2,
+                last_name: patient.name_part1,
+                dob: patient.date_of_birth,
+                gender: patient.gender,
+                create_diagnocat: 0
+            }
+            try {
+                let ctdent_res = await ctdentInstance.post('diagnocat/appointment/createpatient', ctdent_req);
+                console.log(ctdent_res.data.data.id);
+                let patchReq = {
+                    "patient_id": ctdent_res.data.data.id.toString(),
+                    "attributes":
+                        {
+                            "patient_id": ctdent_res.data.data.id.toString()
+                        }
+                }
+                instance.patch(`/patients/${patient.uid}`, patchReq)
+                    .then(response => {
+                        console.log(response.data);
+                    })
+                    .catch((e) => {
+                        console.log(e);
+                    });
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        await timeout(100000);
+    }
+}
+
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
