@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="">
+    <list default="true" id="2d67ba01-78bc-42b7-86e9-7be203dc9760" name="Default Changelist" comment="add delete analysis">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/diagnocatController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/diagnocatController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/diagnocat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/diagnocat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/users.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +102,15 @@
       <workItem from="1625808538208" duration="6196000" />
       <workItem from="1625946511027" duration="5965000" />
       <workItem from="1625980423039" duration="862000" />
-      <workItem from="1626029177284" duration="102000" />
+      <workItem from="1626029177284" duration="11960000" />
+      <workItem from="1626547913273" duration="4157000" />
+      <workItem from="1626855549208" duration="1358000" />
+      <workItem from="1627927431739" duration="957000" />
+      <workItem from="1628489483705" duration="2906000" />
+      <workItem from="1628697570223" duration="2987000" />
+      <workItem from="1630226732438" duration="629000" />
+      <workItem from="1630394224817" duration="8125000" />
+      <workItem from="1631815028613" duration="4141000" />
     </task>
     <task id="LOCAL-00001" summary="add patient">
       <created>1618806030087</created>
@@ -393,14 +406,20 @@
       <option name="project" value="LOCAL" />
       <updated>1625980298552</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="add delete analysis">
+      <created>1626029301262</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1626029301262</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add files to session" />
     <MESSAGE value="upload file using multer" />
     <MESSAGE value="process req" />
     <MESSAGE value="add upload steps (diagnocat API)" />
@@ -425,6 +444,43 @@
     <MESSAGE value="delete unused code" />
     <MESSAGE value="Create a link for doctors" />
     <MESSAGE value="add getPatient + script to generate ct-dent patients" />
-    <option name="LAST_COMMIT_MESSAGE" value="add getPatient + script to generate ct-dent patients" />
+    <MESSAGE value="add delete analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="add delete analysis" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
+          <line>214</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
+          <line>223</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
+          <line>224</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
+          <line>226</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
+          <line>233</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/controllers/diagnocatController.js</url>
+          <line>225</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

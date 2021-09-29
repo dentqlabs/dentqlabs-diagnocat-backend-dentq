@@ -2,7 +2,6 @@ const diagnocatController = require('../controllers/diagnocatController');
 const uploadController = require('../controllers/uploadController');
 const Multer = require('multer');
 
-
 // Multer is required to process file uploads and make them available via
 // req.files.
 const multer = Multer({

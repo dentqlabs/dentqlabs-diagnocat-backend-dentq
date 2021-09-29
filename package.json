@@ -5,7 +5,6 @@
   "scripts": {
     "start": "node server.js",
     "start:dev": "nodemon"
-
   },
   "dependencies": {
     "axios": "^0.21.1",
