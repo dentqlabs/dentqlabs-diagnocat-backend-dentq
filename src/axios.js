@@ -2,7 +2,7 @@ const axios = require('axios');
 const DIAGNOCAT_V2_URL  = 'https://eu.diagnocat.com/partner-api/v2';
 const DIAGNOCAT_V1_URL  = 'https://eu.diagnocat.com/partner-api/v1';
 const CTDENT_URL = 'https://api.v1.ct-dent.co.uk/api/'
-//const CTDENT_URL = 'https://sandbox.api.v1.ct-dent.co.uk/api/'
+// const CTDENT_URL = 'https://sandbox.api.v1.ct-dent.co.uk/api/'
 
 const CTDENT_API_KEY = '7l6J7u9MeJ91gV35MbbnR2FGCbh2Cof+CnWnYFyvVjg+pV1K5NWiu5FEvOpIV';
 
