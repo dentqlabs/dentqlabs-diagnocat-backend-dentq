@@ -37,7 +37,7 @@ const models = [
     require('../models/tbl_branches'),
     require('../models/diagnocat_patients'),
     require('../models/tbl_appointments'),
-    require('../model/diagnocat_pdf'),
+    require('../models/diagnocat_pdfs'),
     require('../models/tbl_appointments_statuses'),
     require('../models/tbl_shared_appointments2doctors'),
 ];
