@@ -11,6 +11,8 @@ const indexRouter = require('./src/routes');
 const diagnocatRouter = require('./src/routes/diagnocat');
 const authRouter = require('./src/routes/auth');
 const patientsRouter = require('./src/routes/patients');
+const appointmentsRouter = require('./src/routes/appointments');
+const usersRouter = require('./src/routes/users');
 const {passportConfig} = require('./src/config/passport');
 const { checkAuth } = require('./src/middleware/auth');
 require('./src/utils/database');
@@ -28,6 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/diagnocat', diagnocatRouter);
 app.use('/auth', authRouter);
-app.use('/patients', patientsRouter)
+app.use('/patients', checkAuth, patientsRouter)
+app.use('/appointments', checkAuth, appointmentsRouter);
+app.use('/users', checkAuth, usersRouter);
+
 
 module.exports = app;
