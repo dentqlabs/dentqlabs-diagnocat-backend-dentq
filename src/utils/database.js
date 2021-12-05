@@ -1,3 +1,4 @@
+const url = require('url');
 const Sequelize = require('sequelize');
 const SocksConnection = require('socksjs');
 const { DB_NAME, DB_USERNAME, DB_PASSWORD, DB_URL, DB_PORT, MYSQL_ENCRYPTION, QUOTAGUARDSTATIC_URL } = process.env;
