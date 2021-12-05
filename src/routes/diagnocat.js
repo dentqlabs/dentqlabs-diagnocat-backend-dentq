@@ -37,6 +37,4 @@ router.post('/upload/progress-notify', uploadController.uploadProgressNotify);
 router.post('/upload/start-session-processing', uploadController.startSessionProcessing);
 router.post('/upload/session-info', uploadController.checkSessionInfo);
 
-router.get('/updateAllPatientsIds', diagnocatController.updateAllPatientsIds);
-
 module.exports = router;

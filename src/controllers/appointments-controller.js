@@ -4,15 +4,15 @@ const {tbl_branches,
     tbl_appointments, 
     tbl_appointments_statuses,
     tbl_shared_appointments2doctors,
-    diagnocat_pdfs,
     decode} = require('../utils/database');
 const _ = require('lodash');
 const Sequelize = require('sequelize');
 const { successResponse } = require('../utils/response');
+const { eq } = require('lodash');
 
-const getAppointments = async (req, res, next) =>{
+const getAppointments = async (req, res) => {
     try{
-        const {offset, limit} = req.query;
+        const {offset, limit, patientId} = req.query;
         if (!offset) return res.status(500).end();
         if (!limit) return res.status(500).end();
         const query = {
@@ -108,7 +108,13 @@ const getAppointments = async (req, res, next) =>{
             ],
             raw: true,        
             subQuery:false,
+            where: {}
         }
+
+        if (patientId){
+            query.where.diagnocat_patient_id = patientId
+        }
+
         const patients = await tbl_appointments.findAll(query,);
         res.json({data: patients}).end();
     }catch(error){
@@ -117,7 +123,7 @@ const getAppointments = async (req, res, next) =>{
     }
 }
 
-const getAppointment = async (req, res, next) =>{
+const getAppointment = async (req, res) => {
     try{
         const {id} = req.params;
 
@@ -225,11 +231,39 @@ const getAppointment = async (req, res, next) =>{
 
 }
 
+const updateAppointment = async (req, res) => {
+    const {id} = req.params;
+    const {fields} = req.body;
+
+    if (!id || isNaN(id) || !fields || fields.length <=0) return res.status(500).end();
+    
+    const appointment = await tbl_appointments.findOne({
+        where: {
+            id: id
+        }
+    });
+
+    if (!appointment) res.status(404).end();
+
+    for(const field of fields){
+        if (!field.name) continue;
+        appointment[field.name] = field.value;
+    }
+
+    const result = await appointment.save();
+    const response = successResponse(1, `Diagnocat Appointment ID#  ${result.id} updated`);
+    res.json(response);
+}
+
 const saveAppointmentDiagnocatLinks = async (req,res) =>{
     try{
-
         const {id, diagnocat_link, diagnocat_pdf} = req.body;
-        const appointment = await tbl_appointments.findOne({id: id});
+
+        const appointment = await tbl_appointments.findOne({
+            where: {
+                id: id
+            }
+        });
 
         if (!appointment) res.status(404).end();
 
@@ -238,6 +272,32 @@ const saveAppointmentDiagnocatLinks = async (req,res) =>{
 
         await appointment.save();
         const response = successResponse(1, `Diagnocat Appointment ID#  ${id} updated`);
+        res.json(response);
+    }catch (error)
+    {
+        console.log(error);
+        res.status(500).end();
+    }
+}
+
+const saveAppointmentDiagnocatLink = async (req,res) =>{
+    try{
+
+        const {id, diagnocat_link} = req.body;
+        console.log("params", id, diagnocat_link);
+        const appointment = await tbl_appointments.findOne({
+            where: {
+                id: id
+            }
+        });
+        
+        if (!appointment) res.status(404).end();
+
+        appointment.diagnocat_link = diagnocat_link;
+        const result = await appointment.save();
+
+        console.log("result", result.id, result.diagnocat_link);
+        const response = successResponse(1, `Diagnocat Appointment ID#  ${result.id} updated`);
         res.json(response);
     }catch (error)
     {
@@ -259,13 +319,6 @@ const saveAppointmentDiagnocatPDFs = async (req, res) =>{
             if (!item.type_id || !item.url){
                 failed.push('Failed: ' + JSON.stringify(item));
             }else{
-                const result = await diagnocat_pdf.create({
-                    appointment_id: id,
-                    pdf_type: item.type_id,
-                    link: item.url,
-                    created_at: now,
-                    updated_at: now,
-                })
             }
         }
 
@@ -278,7 +331,10 @@ const saveAppointmentDiagnocatPDFs = async (req, res) =>{
 }
 
 module.exports = {
+    saveAppointmentDiagnocatLink,
     saveAppointmentDiagnocatLinks,
+    saveAppointmentDiagnocatPDFs,
+    updateAppointment,
     getAppointment,
     getAppointments
 }

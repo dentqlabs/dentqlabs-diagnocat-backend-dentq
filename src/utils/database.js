@@ -3,6 +3,7 @@ const {DB_NAME, DB_USERNAME, DB_PASSWORD, DB_URL, DB_PORT, MYSQL_ENCRYPTION} = p
 const db = {}
 
 const decode = (field, alias) => [Sequelize.literal('CONVERT(DECODE(' + field.split('.').map(i => '`' + i + '`').join('.') + ', "' + MYSQL_ENCRYPTION + '") using utf8)'), alias || field];
+const encode = value => Sequelize.fn('ENCODE', value, MYSQL_ENCRYPTION);
 
 const sequelize = new Sequelize(
     DB_NAME,
@@ -96,5 +97,6 @@ db.users_to_roles.belongsTo(db.user_roles, {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 db.decode = decode;
+db.encode = encode;
 
 module.exports = db;
