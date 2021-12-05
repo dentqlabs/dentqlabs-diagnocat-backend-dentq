@@ -1,14 +1,26 @@
 const Sequelize = require('sequelize');
-const {DB_NAME, DB_USERNAME, DB_PASSWORD, DB_URL, DB_PORT, MYSQL_ENCRYPTION} = process.env;
+const SocksConnection = require('socksjs');
+const { DB_NAME, DB_USERNAME, DB_PASSWORD, DB_URL, DB_PORT, MYSQL_ENCRYPTION, QUOTAGUARDSTATIC_URL } = process.env;
 const db = {}
 
 const decode = (field, alias) => [Sequelize.literal('CONVERT(DECODE(' + field.split('.').map(i => '`' + i + '`').join('.') + ', "' + MYSQL_ENCRYPTION + '") using utf8)'), alias || field];
 const encode = value => Sequelize.fn('ENCODE', value, MYSQL_ENCRYPTION);
+const proxy = url.parse(QUOTAGUARDSTATIC_URL);
+const proxyConnection = new SocksConnection({
+    host: DB_URL,
+    port: DB_PORT, // MS SQL port
+}, {
+    user: proxy.auth.split(':')[0],
+    pass: proxy.auth.split(':')[1],
+    host: proxy.hostname,
+    port: proxy.port,
+});
 
 const sequelize = new Sequelize(
     DB_NAME,
     DB_USERNAME,
     DB_PASSWORD,
+    
     {
         host: DB_URL,
         port: DB_PORT || '3306',
@@ -17,7 +29,7 @@ const sequelize = new Sequelize(
             freezeTableName: true,
             charset: 'utf8',
             collate: 'utf8_general_ci', 
-            timestamps: true
+            timestamps: true,
         
         },
         pool: {
@@ -25,6 +37,13 @@ const sequelize = new Sequelize(
             min: 0,
             acquire: 30000,
             idle: 10000,
+        },
+        dialectOptions: {
+            stream: proxyConnection,
+            options: {
+                encrypt: true,
+                requestTimeout: 300000,
+            },
         },
         operatorsAliases: false,
     },
