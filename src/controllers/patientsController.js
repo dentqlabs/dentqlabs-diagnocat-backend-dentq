@@ -57,6 +57,7 @@ const createPatient = async (req, res, next) => {
         if (createDiagnocat === 1){
             try{
                 const diagnocatPatient = await createDiagnocatPatient(patient);
+                console.log("diagnocatPatient", diagnocatPatient);
             }catch (error){
                 console.log("create diagnocat patient error", error.message);
             }
