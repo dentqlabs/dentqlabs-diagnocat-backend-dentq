@@ -1,4 +1,4 @@
-const {diagnocat_patients, tbl_appointments} = require('../utils/database');
+const {diagnocat_patients, tbl_appointments, getOrderDirection} = require('../utils/database');
 const Sequelize = require('sequelize');
 const _ = require('lodash');
 const moment = require('moment');
@@ -73,7 +73,7 @@ const createPatient = async (req, res, next) => {
 }
 
 const getPatients = async (req, res, next) =>{
-    const {offset, limit, fullName} = req.query;
+    const {offset, limit, fullName, orderBy, orderDirection} = req.query;
     const query = {
         include: [{
             model: tbl_appointments,
@@ -86,7 +86,8 @@ const getPatients = async (req, res, next) =>{
         subQuery: false,
     }
 
-    if (limit) query.limit = parseInt(limit)
+    if (orderBy) query.order = [[orderBy, getOrderDirection(orderDirection)]];
+    if (limit) query.limit = parseInt(limit);
     if (offset) query.offset = parseInt(offset);
     if (fullName){
         query.where = 

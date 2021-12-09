@@ -4,6 +4,8 @@ const db = {}
 
 const decode = (field, alias) => [Sequelize.literal('CONVERT(DECODE(' + field.split('.').map(i => '`' + i + '`').join('.') + ', "' + MYSQL_ENCRYPTION + '") using utf8)'), alias || field];
 const encode = value => Sequelize.fn('ENCODE', value, MYSQL_ENCRYPTION);
+const getOrderDirection = orderDirection => (orderDirection && ["ASC", "DESC"].find(item => item === orderDirection.toUpperCase())) || "ASC";
+
 
 const sequelize = new Sequelize(
     DB_NAME,
@@ -99,5 +101,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 db.decode = decode;
 db.encode = encode;
+db.getOrderDirection = getOrderDirection;
 
 module.exports = db;
