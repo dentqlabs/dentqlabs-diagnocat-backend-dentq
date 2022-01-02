@@ -1,5 +1,8 @@
 const { sign } = require('jsonwebtoken');
 
+/*
+    generates token for authenticated user
+*/
 const login = async function(req, res) {
     return res.json({
         token: makeToken(req.user),
@@ -8,6 +11,9 @@ const login = async function(req, res) {
     });
 }
 
+/*
+    generates token for authenticated user
+*/
 const makeToken = user => sign({ id: user.id, username: user.username }, process.env.TOKEN_SECRET, { expiresIn: process.env.TOKEN_TTL });
     
 module.exports = {

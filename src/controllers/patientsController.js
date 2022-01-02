@@ -5,6 +5,19 @@ const moment = require('moment');
 const { formatResponse, successResponse, errorResponse } = require('../utils/response');
 const { createDiagnocatPatient } = require('../services/diagnocat-service');
 
+/*
+    create new patient record
+    body:
+        appointmentId
+        firstName
+        lastName
+        dateOfBirth
+        gender
+        assignedRadiologistId
+        radiologistMessage
+        refferingDoctor
+        createDiagnocat
+*/
 const createPatient = async (req, res, next) => {
     try{
         const {appointmentId, 
@@ -72,9 +85,26 @@ const createPatient = async (req, res, next) => {
 
 }
 
+/*
+    list patients
+    query parameters:
+        orderBy (optional):         field to sort the result
+        orderDirection(optional):   direction of the sort (descending or ascending)
+        limit (optional):           maximum number of rows to return
+        offset (optinal):           specifies which row to retrieve from
+        fullName (optional):        returns only records with name contains the value of this field
+*/
 const getPatients = async (req, res, next) =>{
     const {offset, limit, fullName, orderBy, orderDirection} = req.query;
     const query = {
+        attributes: [
+            "id",
+            "diagnocat_uid",
+            "last_name",
+            "first_name",
+            "dob",
+            "gender"
+        ],
         include: [{
             model: tbl_appointments,
             as: "appointments",

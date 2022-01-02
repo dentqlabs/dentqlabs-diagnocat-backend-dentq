@@ -1,16 +1,15 @@
 
-const {tbl_branches, 
-    tbl_doctors, 
-    tbl_appointments, 
-    tbl_appointments_statuses,
-    tbl_shared_appointments2doctors,
-    tbl_users,
+const {tbl_users,
     user_roles,
-    users_to_roles,
-    decode} = require('../utils/database');
+    users_to_roles} = require('../utils/database');
 const Sequelize = require('sequelize');
 
-const getUsers = async (req, res, next) =>{
+/*
+    get list of users by role
+    query parameters:
+        role_key (required):    only users belonging to the specific role will be retrieved
+*/
+const getUsers = async (req, res) =>{
     try{
         const {role_key} = req.query;
 
