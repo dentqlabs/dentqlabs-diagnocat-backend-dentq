@@ -4,10 +4,9 @@ const DIAGNOCAT_V1_URL = process.env.DIAGNOCAT_V1_URL;
 const CTDENT_URL = process.env.CTDENT_URL;
 // const CTDENT_URL = 'https://sandbox.api.v1.ct-dent.co.uk/api/'
 
-const CTDENT_API_KEY = '7l6J7u9MeJ91gV35MbbnR2FGCbh2Cof+CnWnYFyvVjg+pV1K5NWiu5FEvOpIV';
+const CTDENT_API_KEY = process.env.CTDENT_API_KEY;
 
-const token =
-    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcmdhbml6YXRpb25faWQiOjY2OCwidXNlcl9pZCI6NjcxLCJlbWFpbCI6ImFyaUBjdC1kZW50LmNvbSIsInRva2VuX3R5cGUiOiJwYXJ0bmVyX2FwaSIsImlzcyI6MTYwNzYxNDYzMiwidHMiOjE2MDc2MTQ2MzJ9.iz2eqRG9-tbsSOAH1KVCgZ1TW2SNGvONKb7g2biVUeM';
+const token = process.env.DIAGNOCAT_TOKEN;
 
 const v2_instance = axios.create({
     baseURL: DIAGNOCAT_V2_URL,
